@@ -15,4 +15,4 @@ mode: all
     user.engine_sleep()
 ^talon sleep [<phrase>]$: speech.disable()
 ^talon wake$: speech.enable()
-
+key(f3): user.mouse_trigger_zoom_mouse()
