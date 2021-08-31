@@ -161,7 +161,7 @@ formatters_words = {
     "smash": formatters_dict["NO_SPACES"],
     "snake": formatters_dict["SNAKE_CASE"],
     # "speak": formatters_dict["NOOP"],
-    "string": formatters_dict["SINGLE_QUOTED_STRING"],
+    "string": formatters_dict["DOUBLE_QUOTED_STRING"],
     "title": formatters_dict["CAPITALIZE_ALL_WORDS"],
     # disable a few formatters for now
     # "tree": formatters_dict["FIRST_THREE"],

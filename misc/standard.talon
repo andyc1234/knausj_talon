@@ -21,9 +21,23 @@ undo that: edit.undo()
 redo that: edit.redo()
 paste match: edit.paste_match_style()
 file save: edit.save()
-wipe: key(backspace)    
-(pad | padding): 
-	insert("  ") 
-	key(left)
+padding:
+    insert("  ")
+    key(left)
 slap: edit.line_insert_down()
-
+equate: insert(" = ")
+empty paren: insert("()")
+empty square: insert("[]")
+empty brace: insert("{}")
+inside paren:
+    insert("()")
+    key(left)
+inside square:
+    insert("[]")
+    key(left)
+inside brace:
+    insert("{}")
+    key(left)
+is equal: insert(" == ")
+and and: insert(" && ")
+or or: insert(" || ")

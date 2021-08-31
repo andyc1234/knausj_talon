@@ -3,7 +3,7 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air bat cap drum each fine gust harp sit jury crunch look made near odd pit quench red sun trap urge vest whale plex yank zip".split(
+default_alphabet = "air bill see drum each fine gust harp ivy jury crunch look made near oh pit queen red sun trap urge vest well plex yank apple".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -113,9 +113,10 @@ def letters(m) -> str:
 ctx = Context()
 modifier_keys = {
     # If you find 'alt' is often misrecognized, try using 'alter'.
-    "alt": "alt",  #'alter': 'alt',
+    "alter": "alt",  #'alter': 'alt',
     "control": "ctrl",  #'troll':   'ctrl',
     "shift": "shift",  #'sky':     'shift',
+    "sky": "shift",
     "super": "super",
 }
 if app.platform  == "mac":
@@ -159,12 +160,14 @@ symbol_key_words = {
     "dot": ".",
     "point": ".",
     "quote": "'",
+    "single quote": "'",
     "apostrophe": "'",
     "L square": "[",
     "left square": "[",
     "square": "[",
     "R square": "]",
     "right square": "]",
+    "close square": "]",
     "slash": "/",
     "backslash": "\\",
     "minus": "-",
@@ -180,16 +183,19 @@ symbol_key_words = {
     "left paren": "(",
     "R paren": ")",
     "right paren": ")",
+    "close paren": ")",
     "brace": "{",
     "left brace": "{",
     "R brace": "}",
     "right brace": "}",
+    "close brace": "}",
     "angle": "<",
     "left angle": "<",
     "less than": "<",
     "rangle": ">",
     "R angle": ">",
     "right angle": ">",
+    "close angle": ">",
     "greater than": ">",
     "star": "*",
     "hash": "#",
@@ -232,9 +238,12 @@ simple_keys = [
 alternate_keys = {
     "delete": "backspace",
     "forward delete": "delete",
-    #'junk': 'backspace',
+    "wipe": "backspace",
     "page up": "pageup",
     "page down": "pagedown",
+    "house": "home",
+    "junk": "escape",
+    "push": "enter",
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):

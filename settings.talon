@@ -28,7 +28,7 @@ settings():
     user.mouse_wake_hides_cursor = 0
 
     # The amount to scroll up/down (equivalent to mouse wheel on Windows by default)
-    user.mouse_wheel_down_amount = 120
+    user.mouse_wheel_down_amount = 240
 
     # Mouse grid and friends put the number one on the bottom left (vs on the top left)
     user.grids_put_one_bottom_left = 1
@@ -47,5 +47,8 @@ settings():
     # per-application basis.
     # user.context_sensitive_dictation = 1
 
+    # minimum silence time (in seconds) before speech is cut off, default 0.3
+    speech.timeout = 0.3
+
 # uncomment tag to enable mouse grid
-# tag(): user.mouse_grid_enabled
+tag(): user.mouse_grid_enabled
