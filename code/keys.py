@@ -3,7 +3,7 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air bill see drum each fine gust harp ivy jury crunch look made near oh pit queen red sun trap urge victory word plex yank apple".split(
+default_alphabet = "air bill change drum each fine gust harp ivy jury crunch look made near over pit queen red sun trap urge victor word plex yank apple".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -114,7 +114,7 @@ ctx = Context()
 modifier_keys = {
     # If you find 'alt' is often misrecognized, try using 'alter'.
     "alter": "alt",  #'alter': 'alt',
-    "control": "ctrl",  #'troll':   'ctrl',
+    "troll": "ctrl",  #'troll':   'ctrl',
     "shift": "shift",  #'sky':     'shift',
     "sky": "shift",
     "super": "super",

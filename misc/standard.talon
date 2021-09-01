@@ -41,3 +41,4 @@ inside brace:
 is equal: insert(" == ")
 and and: insert(" && ")
 or or: insert(" || ")
+(semi | sammy): insert(";")

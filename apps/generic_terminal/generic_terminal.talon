@@ -19,3 +19,7 @@ tea left: key(ctrl-space left)
 tea right: key(ctrl-space right)
 tea up: key(ctrl-space up)
 tea down: key(ctrl-space down)
+# For vim
+save:
+    insert(":w")
+    key(enter)
