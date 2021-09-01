@@ -4,10 +4,10 @@ find it:
 next one:
     edit.find_next()
 
-(go word left | west):
+go (word left | west):
     edit.word_left()
 
-(go word right | east):
+go (word right | east):
     edit.word_right()
 
 go left:
@@ -22,10 +22,10 @@ go up:
 go down:
     edit.down()
 
-(go line start | head):
+go (line start | head):
     edit.line_start()
 
-(go line end | tail):
+go (line end | tail):
     edit.line_end()
 
 go way left:
@@ -128,11 +128,11 @@ clear word:
     edit.extend_word_right()
     edit.delete()
 
-clear way left:
+clear (way left | head):
     edit.extend_line_start()
     edit.delete()
 
-clear way right:
+clear (way right | tail):
     edit.extend_line_end()
     edit.delete()
 
@@ -182,6 +182,14 @@ copy line:
     edit.select_line()
     edit.copy()
 
+copy head:
+    edit.extend_line_start()
+    edit.copy()
+
+copy tail:
+    edit.extend_line_end()
+    edit.copy()
+
 #cut commands
 cut all:
     edit.select_all()
@@ -214,4 +222,12 @@ cut (word right | east):
 
 cut line:
     edit.select_line()
+    edit.cut()
+
+cut head:
+    edit.extend_line_start()
+    edit.cut()
+
+cut tail:
+    edit.extend_line_end()
     edit.cut()
