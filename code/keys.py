@@ -3,7 +3,7 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air bill change drum each fine gust harp ivy jury crunch look made near over pit queen red sun trap urge victor word plex yank apple".split(
+default_alphabet = "air bill change drum each fine gust harp ivy jury crunch look made near over pit queen red sun trap urge victor word plex yank easy".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -120,7 +120,7 @@ modifier_keys = {
     "super": "super",
 }
 if app.platform  == "mac":
-    modifier_keys["command"] = "cmd"
+    modifier_keys["apple"] = "cmd"
     modifier_keys["option"] = "alt"
 ctx.lists["self.modifier_key"] = modifier_keys
 alphabet = dict(zip(default_alphabet, letters_string))

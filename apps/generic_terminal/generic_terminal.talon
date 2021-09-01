@@ -21,5 +21,10 @@ tea up: key(ctrl-space up)
 tea down: key(ctrl-space down)
 # For vim
 save:
+    key(escape)
     insert(":w")
     key(enter)
+file: insert(" ee")
+workspace: insert(" ew")
+fuzzy: insert(" ff")
+buffer: insert(" fw")
