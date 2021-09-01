@@ -4,10 +4,10 @@ find it:
 next one:
     edit.find_next()
 
-go word left:
+(go word left | west):
     edit.word_left()
 
-go word right:
+(go word right | east):
     edit.word_right()
 
 go left:
@@ -22,14 +22,13 @@ go up:
 go down:
     edit.down()
 
-go line start:
+(go line start | head):
     edit.line_start()
 
-go line end:
+(go line end | tail):
     edit.line_end()
 
 go way left:
-    edit.line_start()
     edit.line_start()
 
 go way right:
@@ -40,10 +39,10 @@ go way down:
 
 go way up:
     edit.file_start()
-    
+
 go bottom:
     edit.file_end()
-    
+
 go top:
     edit.file_start()
 
@@ -75,16 +74,16 @@ select down:
 select word:
     edit.select_word()
 
-select word left:
+select (word left | west):
     edit.extend_word_left()
 
-select word right:
+select (word right | east):
     edit.extend_word_right()
 
-select way left:
+select (way left | head):
     edit.extend_line_start()
 
-select way right:
+select (way right | tail):
     edit.extend_line_end()
 
 select way up:
@@ -104,10 +103,10 @@ indent [more]:
 clear line:
     edit.delete_line()
 
-clear left:
+(clear left | wipe):
     key(backspace)
 
-clear right:
+(clear right | whack):
     key(delete)
 
 clear up:
@@ -121,11 +120,11 @@ clear down:
 clear word:
     edit.delete_word()
 
-clear word left:
+(clear word left | scratch):
     edit.extend_word_left()
     edit.delete()
 
-clear word right:
+(clear word right | swallow):
     edit.extend_word_right()
     edit.delete()
 
@@ -171,11 +170,11 @@ copy word:
     edit.select_word()
     edit.copy()
 
-copy word left:
+copy (word left | west):
     edit.extend_word_left()
     edit.copy()
 
-copy word right:
+copy (word right | east):
     edit.extend_word_right()
     edit.copy()
 
@@ -205,11 +204,11 @@ cut word:
     edit.select_word()
     edit.cut()
 
-cut word left:
+cut (word left | west):
     edit.extend_word_left()
     edit.cut()
 
-cut word right:
+cut (word right | east):
     edit.extend_word_right()
     edit.cut()
 
