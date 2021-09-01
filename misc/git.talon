@@ -19,8 +19,13 @@ git cherry pick abort: "git cherry-pick --abort "
 git cherry pick skip: "git cherry-pick --skip "
 git clone: "git clone "
 git clean everything: "git clean -dfx"
-git commit message <user.text>: "git commit -m '{text}'"
 git commit: "git commit "
+git commit all:
+    insert("git commit -am ''")
+    key(left)
+git commit message:
+    insert("git commit -m ''")
+    key(left)
 git diff (colour|color) words: "git diff --color-words "
 git diff: "git diff "
 git diff cached: "git diff --cached"
