@@ -51,3 +51,4 @@ bold: key(cmd-b)
 emote <user.text>: "{text}"
 toggle left sidebar: key(cmd-shift-d)
 toggle right sidebar: key(cmd-.)
+unread trap: key(cmd-shift-t)
