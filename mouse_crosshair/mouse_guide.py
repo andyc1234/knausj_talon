@@ -40,39 +40,41 @@ class MouseGuide:
 
     def draw_canvas(self, canvas):
         paint = canvas.paint
-        paint.color = 'fff'
-        rect = canvas.rect
+        paint.color = '0000ffff' # blue
+        paint.antialias = True
 
-        SMALL_DIST   = 5
-        SMALL_LENGTH = 10
-        LARGE_DIST   = 25
-        LARGE_LENGTH = 30
-        irange = lambda start, stop, step: range(int(start), int(stop), int(step))
-        paint.antialias = False
-        for off, color in ((0, 'ffffffff'), (1, '000000ff')):
-            paint.color = color
+        dash_offset = 25 # pixels between dashes
+        cx, cy = canvas.rect.center
+        dashes_from_cursor = 103
 
-            # draw axis lines
-            cx, cy = rect.center
-            cxo = cx + off
-            cyo = cy + off
+        for i in range(1, dashes_from_cursor, 1):
+            delta = i * dash_offset
+            if i%10 == 0:
+                # long dashes with texts
+                self.draw_dash_x(canvas, cx - delta, cy, 20, str(i))
+                self.draw_dash_x(canvas, cx + delta, cy, 20, str(i))
+                self.draw_dash_y(canvas, cx, cy - delta, 20, str(i))
+                self.draw_dash_y(canvas, cx, cy + delta, 20, str(i))
+            elif i%5 == 0:
+                # long dashes
+                self.draw_dash_x(canvas, cx - delta, cy, 20)
+                self.draw_dash_x(canvas, cx + delta, cy, 20)
+                self.draw_dash_y(canvas, cx, cy - delta, 20)
+                self.draw_dash_y(canvas, cx, cy + delta, 20)
+            else:
+                # normal dashes
+                self.draw_dash_x(canvas, cx - delta, cy, 10)
+                self.draw_dash_x(canvas, cx + delta, cy, 10)
+                self.draw_dash_y(canvas, cx, cy - delta, 10)
+                self.draw_dash_y(canvas, cx, cy + delta, 10)
 
-            # draw ticks
-            for tick_dist, tick_length in ((SMALL_DIST, SMALL_LENGTH),
-                                           (LARGE_DIST, LARGE_LENGTH)):
-                half = tick_length // 2
-                # ticks to the left
-                for x in irange(rect.left + off, cx - tick_dist + 1, tick_dist):
-                    canvas.draw_line(x, cy - half, x, cy + half)
-                # ticks to the right
-                for x in irange(cxo + tick_dist - 1, rect.right + 1, tick_dist):
-                    canvas.draw_line(x, cy - half, x, cy + half)
-                # ticks above
-                for y in irange(rect.top + off + 1, cy - tick_dist + 1, tick_dist):
-                    canvas.draw_line(cx - half, y, cx + half, y)
-                # ticks below
-                for y in irange(cyo + tick_dist, rect.bot + 1, tick_dist):
-                    canvas.draw_line(cx - half, y, cx + half, y)
+    def draw_dash_x(self, canvas, x, y, size, text=''):
+        canvas.draw_line(x, y - size, x, y + size)
+        if text: canvas.draw_text(text, x - 7, y + 35)
+
+    def draw_dash_y(self, canvas, x, y, size, text=''):
+        canvas.draw_line(x - size, y, x + size, y)
+        if text: canvas.draw_text(text, x + 25, y + 4)
 
     def on_mouse(self, event):
         self.check_mouse()
@@ -84,8 +86,9 @@ class MouseGuide:
             self.canvas.move(x - self.width // 2, y - self.height // 2)
             self.last_pos = pos
 
-mouse_guide = MouseGuide(500, 500)
-# mouse_guide.enable()
+# increase canvas size
+mouse_guide = MouseGuide(500*11, 500*5)
+#mouse_guide.enable()
 
 mod = Module()
 mod.list('mouse_cardinal', desc='cardinal directions for relative mouse movement')
