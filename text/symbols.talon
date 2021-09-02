@@ -15,65 +15,70 @@ dub arrow: "=>"
 new line: "\\n"
 carriage return: "\\r"
 line feed: "\\r\\n"
-empty dubstring:
-    '""'
-    key(left)
-empty escaped (dubstring|dub quotes):
-    '\\"\\"'
-    key(left)
-    key(left)
-empty string:
-    "''"
-    key(left)
-empty escaped string:
-    "\\'\\'"
-    key(left)
-    key(left)
-(inside parens | args):
-    insert("()")
-    key(left)
-inside (squares | square brackets | list):
-    insert("[]")
-    key(left)
-inside (bracket | braces):
-    insert("{}")
-    key(left)
-inside percent:
-    insert("%%")
-    key(left)
-inside quotes:
+sammy: insert(";")
+square close: insert("]")
+brace close: insert("}")
+paren close: insert(")")
+angle close: insert(">")
+single quote: insert("'")
+equate: insert(" = ")
+is equal: insert(" == ")
+
+single quote empty: insert("''")
+([double] quote | string) empty: insert('""')
+brace empty: insert("{}")
+square empty: insert("[]")
+paren empty: insert("()")
+angle empty: insert("<>")
+percent empty: insert("%%")
+back tick empty: insert("``")
+
+single quote inside:
     insert("''")
     key(left)
-inside (double quotes | dubquotes):
+([double] quote | string) inside:
     insert('""')
     key(left)
-inside string:
-    insert('""')
+brace inside:
+    insert("{}")
     key(left)
-inside (graves | back ticks):
+square inside:
+    insert("[]")
+    key(left)
+paren inside:
+    insert("()")
+    key(left)
+angle inside:
+    insert("<>")
+    key(left)
+percent inside:
+    insert("%%")
+    key(left)
+back tick inside:
     insert("``")
     key(left)
+
+single quote that:
+    text = edit.selected_text()
+    user.paste("'{text}'")
+([double] quote | string) that:
+    text = edit.selected_text()
+    user.paste('"{text}"')
+brace that:
+    text = edit.selected_text()
+    user.paste("{{{text}}}")
+square that:
+    text = edit.selected_text()
+    user.paste("[{text}]")
+paren that:
+    text = edit.selected_text()
+    user.paste("({text})")
 angle that:
     text = edit.selected_text()
     user.paste("<{text}>")
-(square | square bracket) that:
-    text = edit.selected_text()
-    user.paste("[{text}]")
-(bracket | brace) that:
-    text = edit.selected_text()
-    user.paste("{{{text}}}")
-(parens | args) that:
-    text = edit.selected_text()
-    user.paste("({text})")
 percent that:
     text = edit.selected_text()
-    user.paste("%{text}%")
-quote that:
-    text = edit.selected_text()
-    user.paste("'{text}'")
-(double quote | dubquote) that:
-    text = edit.selected_text()
-    user.paste('"{text}"')
-(grave | back tick) that:
+    user.paste('%{text}%')
+back tick that:
     text = edit.selected_text()
     user.paste('`{text}`')

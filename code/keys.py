@@ -113,9 +113,8 @@ def letters(m) -> str:
 ctx = Context()
 modifier_keys = {
     # If you find 'alt' is often misrecognized, try using 'alter'.
-    "alter": "alt",  #'alter': 'alt',
-    "troll": "ctrl",  #'troll':   'ctrl',
-    "shift": "shift",  #'sky':     'shift',
+    "alter": "alt",
+    "troll": "ctrl",
     "sky": "shift",
     "super": "super",
 }
@@ -160,14 +159,12 @@ symbol_key_words = {
     "dot": ".",
     "point": ".",
     "quote": "'",
-    "single quote": "'",
     "apostrophe": "'",
     "L square": "[",
     "left square": "[",
     "square": "[",
     "R square": "]",
     "right square": "]",
-    "close square": "]",
     "slash": "/",
     "backslash": "\\",
     "minus": "-",
@@ -183,19 +180,16 @@ symbol_key_words = {
     "left paren": "(",
     "R paren": ")",
     "right paren": ")",
-    "close paren": ")",
     "brace": "{",
     "left brace": "{",
     "R brace": "}",
     "right brace": "}",
-    "close brace": "}",
     "angle": "<",
     "left angle": "<",
     "less than": "<",
     "rangle": ">",
     "R angle": ">",
     "right angle": ">",
-    "close angle": ">",
     "greater than": ">",
     "star": "*",
     "hash": "#",
@@ -240,9 +234,6 @@ alternate_keys = {
     "forward delete": "delete",
     "page up": "pageup",
     "page down": "pagedown",
-    "house": "home",
-    "junk": "escape",
-    "push": "enter",
 }
 # mac apparently doesn't have the menu key.
 if app.platform in ("windows", "linux"):
