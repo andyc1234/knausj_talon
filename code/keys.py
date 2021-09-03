@@ -112,9 +112,8 @@ def letters(m) -> str:
 
 ctx = Context()
 modifier_keys = {
-    # If you find 'alt' is often misrecognized, try using 'alter'.
     "alter": "alt",
-    "troll": "ctrl",
+    "fender": "ctrl",
     "sky": "shift",
     "super": "super",
 }

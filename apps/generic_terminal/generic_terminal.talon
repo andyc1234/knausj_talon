@@ -25,7 +25,7 @@ save:
     insert(":w")
     key(enter)
 file: insert(" ee")
-workspace: insert(" ew")
+file root: insert(" ew")
 fuzzy: insert(" ff")
 buffer: insert(" fw")
 window: key(ctrl-w)
