@@ -41,35 +41,35 @@ class MouseGuide:
     def draw_canvas(self, canvas):
         paint = canvas.paint
         paint.color = '0000ffff' # blue
-        paint.antialias = True
+        paint.antialias = False
 
         dash_offset = 25 # pixels between dashes
         cx, cy = canvas.rect.center
         dashes_from_cursor = 103
 
+        self.draw_cursor(canvas, cx, cy)
+
         for i in range(1, dashes_from_cursor, 1):
             delta = i * dash_offset
-            if i%5 == 0:
-                # long dashes
-                self.draw_dash_x(canvas, cx - delta, cy, 30, str(i))
-                self.draw_dash_x(canvas, cx + delta, cy, 30, str(i))
-                self.draw_dash_y(canvas, cx, cy - delta, 30, str(i))
-                self.draw_dash_y(canvas, cx, cy + delta, 30, str(i))
-            else:
-                # normal dashes
-                self.draw_dash_x(canvas, cx - delta, cy, 10, str(i))
-                self.draw_dash_x(canvas, cx + delta, cy, 10, str(i))
-                self.draw_dash_y(canvas, cx, cy - delta, 10, str(i))
-                self.draw_dash_y(canvas, cx, cy + delta, 10, str(i))
+            hash_size = 30 if i % 5 == 0 else 10
+            self.draw_dash_x(canvas, cx - delta, cy, hash_size, str(i))
+            self.draw_dash_x(canvas, cx + delta, cy, hash_size, str(i))
+            self.draw_dash_y(canvas, cx, cy - delta, hash_size, str(i))
+            self.draw_dash_y(canvas, cx, cy + delta, hash_size, str(i))
+
+    def draw_cursor(self, canvas, x, y):
+        size = 2
+        canvas.draw_line(x, y - size - 1, x, y + size)
+        canvas.draw_line(x - size - 1, y, x + size, y)
 
     def draw_dash_x(self, canvas, x, y, size, text):
-        canvas.draw_line(x, y - size, x, y + size)
+        canvas.draw_line(x, y - size - 1, x, y + size)
         offset_x = 4 if len(text) == 1 else 7
         offset_y = 23 if size == 10 else 42
         canvas.draw_text(text, x - offset_x, y + offset_y)
 
     def draw_dash_y(self, canvas, x, y, size, text):
-        canvas.draw_line(x - size, y, x + size, y)
+        canvas.draw_line(x - size - 1, y, x + size, y)
         offset_x = 12 if size == 10 else 32
         offset_y = 4
         canvas.draw_text(text, x + offset_x, y + offset_y)
@@ -93,12 +93,6 @@ mod.list('mouse_cardinal', desc='cardinal directions for relative mouse movement
 
 def parse_cardinal(direction: str, distance: int) -> Tuple[bool, int]:
     x, y = ctrl.mouse_pos()
-    if ' ' in direction:
-        modifier, direction = direction.split(' ', 1)
-        if modifier == 'small':
-            distance *= 5
-    else:
-        distance *= 25
     if direction == 'left':
         return True, x - distance
     elif direction == 'right':
@@ -131,6 +125,8 @@ class Actions:
     def mouse_cardinal_move_1d(direction: str, distance: int):
         """Move the mouse along a cardinal, e.g. 'move 1 left'"""
         x, y = ctrl.mouse_pos()
+        # move curser by a small amount if distance is 0
+        distance = 10 if distance == 0 else distance * 25
         horiz, pos = parse_cardinal(direction, distance)
         if horiz:
             x = pos
@@ -138,8 +134,11 @@ class Actions:
             y = pos
         ctrl.mouse_move(x, y)
 
-    def mouse_cardinal_move_2d(dir1: str, dist1: int, dir2: str, dist2: str):
+    def mouse_cardinal_move_2d(dir1: str, dist1: int, dir2: str, dist2: int):
         """Move the mouse along a 2d cardinal, e.g. 'move 1 left 2 up'"""
+        # move curser by a small amount if distance is 0
+        dist1 = 10 if dist1 == 0 else dist1 * 25
+        dist2 = 10 if dist2 == 0 else dist2 * 25
         horiz1, pos1 = parse_cardinal(dir1, dist1)
         horiz2, pos2 = parse_cardinal(dir2, dist2)
         if horiz1 == horiz2:
