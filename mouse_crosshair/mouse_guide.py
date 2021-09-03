@@ -49,32 +49,30 @@ class MouseGuide:
 
         for i in range(1, dashes_from_cursor, 1):
             delta = i * dash_offset
-            if i%10 == 0:
-                # long dashes with texts
-                self.draw_dash_x(canvas, cx - delta, cy, 20, str(i))
-                self.draw_dash_x(canvas, cx + delta, cy, 20, str(i))
-                self.draw_dash_y(canvas, cx, cy - delta, 20, str(i))
-                self.draw_dash_y(canvas, cx, cy + delta, 20, str(i))
-            elif i%5 == 0:
+            if i%5 == 0:
                 # long dashes
-                self.draw_dash_x(canvas, cx - delta, cy, 20)
-                self.draw_dash_x(canvas, cx + delta, cy, 20)
-                self.draw_dash_y(canvas, cx, cy - delta, 20)
-                self.draw_dash_y(canvas, cx, cy + delta, 20)
+                self.draw_dash_x(canvas, cx - delta, cy, 30, str(i))
+                self.draw_dash_x(canvas, cx + delta, cy, 30, str(i))
+                self.draw_dash_y(canvas, cx, cy - delta, 30, str(i))
+                self.draw_dash_y(canvas, cx, cy + delta, 30, str(i))
             else:
                 # normal dashes
-                self.draw_dash_x(canvas, cx - delta, cy, 10)
-                self.draw_dash_x(canvas, cx + delta, cy, 10)
-                self.draw_dash_y(canvas, cx, cy - delta, 10)
-                self.draw_dash_y(canvas, cx, cy + delta, 10)
+                self.draw_dash_x(canvas, cx - delta, cy, 10, str(i))
+                self.draw_dash_x(canvas, cx + delta, cy, 10, str(i))
+                self.draw_dash_y(canvas, cx, cy - delta, 10, str(i))
+                self.draw_dash_y(canvas, cx, cy + delta, 10, str(i))
 
-    def draw_dash_x(self, canvas, x, y, size, text=''):
+    def draw_dash_x(self, canvas, x, y, size, text):
         canvas.draw_line(x, y - size, x, y + size)
-        if text: canvas.draw_text(text, x - 7, y + 35)
+        offset_x = 4 if len(text) == 1 else 7
+        offset_y = 23 if size == 10 else 42
+        canvas.draw_text(text, x - offset_x, y + offset_y)
 
-    def draw_dash_y(self, canvas, x, y, size, text=''):
+    def draw_dash_y(self, canvas, x, y, size, text):
         canvas.draw_line(x - size, y, x + size, y)
-        if text: canvas.draw_text(text, x + 25, y + 4)
+        offset_x = 12 if size == 10 else 32
+        offset_y = 4
+        canvas.draw_text(text, x + offset_x, y + offset_y)
 
     def on_mouse(self, event):
         self.check_mouse()
