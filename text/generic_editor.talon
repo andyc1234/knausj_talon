@@ -4,10 +4,10 @@ find it:
 next one:
     edit.find_next()
 
-go (word left | west):
+(go word left | bounce):
     edit.word_left()
 
-go (word right | east):
+(go word right | leap):
     edit.word_right()
 
 go left:
@@ -74,10 +74,10 @@ select down:
 select word:
     edit.select_word()
 
-select (word left | west):
+select (word left | bounce):
     edit.extend_word_left()
 
-select (word right | east):
+select (word right | leap):
     edit.extend_word_right()
 
 select (way left | head):
@@ -170,11 +170,11 @@ copy word:
     edit.select_word()
     edit.copy()
 
-copy (word left | west):
+copy (word left | bounce):
     edit.extend_word_left()
     edit.copy()
 
-copy (word right | east):
+copy (word right | leap):
     edit.extend_word_right()
     edit.copy()
 
@@ -212,11 +212,11 @@ cut word:
     edit.select_word()
     edit.cut()
 
-cut (word left | west):
+cut (word left | bounce):
     edit.extend_word_left()
     edit.cut()
 
-cut (word right | east):
+cut (word right | leap):
     edit.extend_word_right()
     edit.cut()
 
