@@ -31,3 +31,8 @@ buffer: insert(" fw")
 window: key(ctrl-w)
 window <user.arrow_key>: key(ctrl-w arrow_key)
 window split: key(ctrl-w s)
+
+copy paste:
+    edit.copy()
+    sleep(50ms)
+    edit.paste()
