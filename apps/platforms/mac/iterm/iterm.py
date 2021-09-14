@@ -56,7 +56,7 @@ class user_actions:
     #     actions.insert(path)
 
     def terminal_list_directories():
-        actions.insert("ls")
+        actions.insert("ls -la")
         actions.key("enter")
 
     def terminal_list_all_directories():
