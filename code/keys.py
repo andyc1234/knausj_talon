@@ -3,7 +3,7 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air back change drum ear fine gust harp ivy jury crunch look made next oh pit queen red search trap urge victor word plex yank easy".split(
+default_alphabet = "air back change drum ear fine gust harp inside jury crunch look made next over pit queen red search trap urge victor word plex yank easy".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -155,7 +155,7 @@ punctuation_words = {
 symbol_key_words = {
     "dot": ".",
     "point": ".",
-    "quote": "'",
+    "single quote": "'",
     "apostrophe": "'",
     "L square": "[",
     "left square": "[",
@@ -196,6 +196,7 @@ symbol_key_words = {
     "pipe": "|",
     "dubquote": '"',
     "double quote": '"',
+    "quote": '"',
 
     # Currencies
     "dollar": "$",

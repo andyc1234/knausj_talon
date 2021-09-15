@@ -14,3 +14,12 @@ snap <user.running_applications> <user.window_snap_position>:
     user.snap_app(running_applications, window_snap_position)
 snap <user.running_applications> [screen] <number>:
     user.move_app_to_screen(running_applications, number)
+
+arrange left: key(ctrl-cmd-h)
+arrange right: key(ctrl-cmd-l)
+arrange up: key(ctrl-cmd-k)
+arrange down: key(ctrl-cmd-j)
+arrange max: key(ctrl-cmd-m)
+arrange almost: key(ctrl-cmd-n)
+arrange restore: key(ctrl-cmd-r)
+arrange two: key(ctrl-cmd-2)
