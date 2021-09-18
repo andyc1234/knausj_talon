@@ -6,8 +6,8 @@ phrase <user.text> over: user.insert_formatted(text, "NOOP")
 <user.format_text>+$: user.insert_many(format_text_list)
 <user.format_text>+ over: user.insert_many(format_text_list)
 <user.formatters> that: user.formatters_reformat_selection(user.formatters)
-speak <user.word>:
-    user.insert_formatted(user.word, "NOOP")
+speak <user.text>$:
+    user.insert_formatted(text, "NOOP")
     insert(" ")
 format help | help format: user.formatters_help_toggle()
 recent list: user.toggle_phrase_history()
