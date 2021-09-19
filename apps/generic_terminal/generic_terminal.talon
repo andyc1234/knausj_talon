@@ -25,23 +25,6 @@ tea left: key(ctrl-space left)
 tea right: key(ctrl-space right)
 tea up: key(ctrl-space up)
 tea down: key(ctrl-space down)
-# For vim
-save:
-    key(escape)
-    insert(":w")
-    key(enter)
-save all:
-    key(escape)
-    insert(":wa")
-    key(enter)
-file: insert(" ee")
-file root: insert(" ew")
-fuzzy: insert(" ff")
-buffer: insert(" fw")
-window: key(ctrl-w)
-window <user.arrow_key>: key(ctrl-w arrow_key)
-window split: key(ctrl-w s)
-window vertical: key(ctrl-w v)
 
 copy paste:
     edit.copy()
