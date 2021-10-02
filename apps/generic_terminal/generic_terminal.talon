@@ -8,6 +8,7 @@ lisa all:
     user.terminal_list_all_directories()
 see dee [<user.text>]: user.terminal_change_directory(text or "")
 see dee root: user.terminal_change_directory_root()
+see dee: insert("cd ")
 see dee up: insert("cd ../")
 see dee up up: insert("cd ../../")
 see dee up up up: insert("cd ../../../")

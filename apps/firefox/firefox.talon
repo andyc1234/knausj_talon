@@ -9,4 +9,6 @@ tab search <user.text>$:
     browser.focus_address()
     insert("% {text}")
     key(down)
-    
+
+group next: key(ctrl-`)
+group last: key(ctrl-~)
