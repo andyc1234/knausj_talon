@@ -21,11 +21,12 @@ rerun [<user.text>]: user.terminal_rerun_search(text or "")
 rerun search: user.terminal_rerun_search("")
 kill all: user.terminal_kill_all()
 # For tmux
-tea: key(ctrl-space)
-tea left: key(ctrl-space left)
-tea right: key(ctrl-space right)
-tea up: key(ctrl-space up)
-tea down: key(ctrl-space down)
+puppy: key(ctrl-space)
+puppy left: key(ctrl-space r)
+puppy right: key(ctrl-space t)
+puppy up: key(ctrl-space f)
+puppy down: key(ctrl-space s)
+puppy last: key(ctrl-space space)
 
 copy paste:
     edit.copy()

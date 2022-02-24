@@ -3,7 +3,7 @@ from typing import Set
 from talon import Module, Context, actions, app
 import sys
 
-default_alphabet = "air back change drum ear fine gust harp inside jury crunch look made next over pit queen red search trap urge victor word plex yank easy".split(
+default_alphabet = "apple back change drum ear fine gust harp inside jury crunch look made next over pit queen red search trap urge victor word plex yank easy".split(
     " "
 )
 letters_string = "abcdefghijklmnopqrstuvwxyz"
@@ -113,12 +113,13 @@ def letters(m) -> str:
 ctx = Context()
 modifier_keys = {
     "alter": "alt",
-    "fender": "ctrl",
+    "control": "ctrl",
     "sky": "shift",
     "super": "super",
 }
 if app.platform  == "mac":
-    modifier_keys["apple"] = "cmd"
+    modifier_keys["fender"] = "ctrl"
+    modifier_keys["gibson"] = "cmd"
     modifier_keys["option"] = "alt"
 ctx.lists["self.modifier_key"] = modifier_keys
 alphabet = dict(zip(default_alphabet, letters_string))
